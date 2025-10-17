@@ -106,83 +106,124 @@ We will prioritize a web-based release first, then build the mobile app.
 
 ## Key Features
 
+A quick, skimmable overview first — then expandable deep dives.
+
+### Feature Highlights (at a glance)
+
+| Category | Highlights |
+|---|---|
+| Core Modules | Profile → evolving skill graph, AI team formation, Teacher supervision, Project lifecycle & realtime comms, Project Showcase |
+| Career & Employability | AI Resume (U‑Resume), Job/Internship matching, Skill gap insights, Personalized roadmaps, Recruiter dashboard, Verified certificates |
+| AI & Analytics | Skill Graph, Hybrid recommender, NLP job parsing, Career predictor, Interview coach, University AI Mentor (campus chatbot) |
+| Collaboration & Community | Help board with issue conversion, Open collaboration, Mentorship, Voice/Video, Cross‑university challenges |
+| Engagement & Gamification | Badges, Leaderboards, Streaks & XP |
+
+<details>
+<summary>User journey (how it fits together)</summary>
+
+1) Create Profile → 2) Evolve with skills/learning/interests/projects/contributions →  
+3) AI analyzes profile to suggest career paths, reveal gaps, and generate roadmaps →  
+4) AI forms/assists team creation with matched peers; teachers pick teams to supervise →  
+5) Work in a realtime project space (chat, tasks, files) →  
+6) Showcase projects to the whole university; get help via open collaboration →  
+7) AI generates a polished resume and matches jobs/internships →  
+8) Apply faster and track outcomes; grow U‑Score with verified impact.
+</details>
+
+---
+
 ### Core Modules
 
-- Smart Collaboration Engine (AI “Brain”): Learns from skills, projects, GPA, interests, outcomes, and feedback to improve matches over time.
-  - Continuously updates weights to reflect recency, reliability, and mentor endorsements.
-- Intelligent Team Formation: Auto-creates balanced teams (skills, experience, availability) with teacher constraints (handpick, prefer seniors, cross-dept).
-  - Supports hard constraints (must-have) and soft preferences (nice-to-have).
-- Adaptive Skill Profiling: Profiles update from workshops, projects, certifications, mentor feedback. Skill weights adjust by recency, frequency, endorsement.
-  - Generates a transparent skill graph per user with evidence links.
-- Comprehensive Profiles (students/faculty): Projects, U-Score, skill graph, badges, verified internships, shareable mini-site (uconnect.me/username).
-  - Public/private toggles for fields to control recruiter visibility.
-- Opportunity Discovery Hub: Projects, hackathons, internships, and events ranked by match score and proximity.
-  - Filter by stack, timeline, location, team size, and difficulty.
-- Teacher–Student Collaboration: Project calls, team approvals, mentor assignment, evaluation forms, private faculty dashboards.
-  - Rubrics with comment threads and exportable grading reports.
-- UConnect Communication Space: Realtime chat, discussion rooms, file sharing, activity timeline.
-  - Topic channels per project and DM support with attachments.
-- Smart Project Lifecycle Tracker: Tasks, deadlines, auto-milestones, progress analytics, AI task-splitting suggestions.
-  - Burnup/burndown charts; deadline nudges via notifications.
-- U-Score (Reputation & Skill Scoring): Combines outcomes, peer reviews, mentor feedback, contribution tracking.
-  - Guardrails ensure explainability and allow faculty overrides.
-- Cross-Department Bridge: Easily form interdisciplinary teams (e.g., CSE + Design + BBA).
-  - Weighted diversity score to encourage balanced teams.
-- AI-Curated Project Repository: Archive of completed projects with metadata, outcomes, repo links, templates.
-  - Search by stack, tags, complexity, and success metrics.
+- Progressive Profiles & Skill Graph
+  - Start simple; grow over time with skills, learning, interests, projects, contributions, endorsements.
+  - Transparent, evidence‑linked skill graph per user with recency/quality weighting.
+- Intelligent Team Formation
+  - AI suggests balanced teams by skills, interests, availability, and diversity; supports hard/soft constraints.
+  - Teachers can hand‑pick or approve teams and choose which to supervise for projects/thesis.
+- Smart Project Lifecycle Tracker
+  - Tasks, milestones, deadlines, AI task‑splitting, burnup/burndown, nudges, and progress analytics.
+- UConnect Communication Space
+  - Realtime chat, project channels, DMs with attachments, file sharing, activity timelines; voice/video ready.
+- Opportunity Discovery Hub
+  - Projects, hackathons, internships, and events ranked by match score, proximity, stack, and difficulty.
+- Project Showcase (University‑wide)
+  - Public gallery of approved projects to avoid duplicates, inspire upgrades, and enable iteration/maintenance.
+  - Cross‑department discovery (e.g., CSE + Design + BBA) to encourage interdisciplinary work.
+- AI‑Curated Project Repository
+  - Archive with outcomes, metadata, repo links, templates; powerful search and filters.
+- U‑Score (Reputation & Skill Scoring)
+  - Combines outcomes, reviews, mentor feedback, contributions; explainable with faculty guardrails/overrides.
+
+<details>
+<summary>Why it matters</summary>
+- Faster, fairer team formation and transparent supervision
+- Less admin overhead; more outcome‑driven learning
+- University‑wide knowledge reuse and better project quality
+</details>
+
+---
 
 ### Career & Employability
 
-- U-Resume (AI-Generated Resume/CV): Converts profile into professional resumes. Multiple templates (Corporate/Modern/Academic), export (PDF/DOCX/LinkedIn), AI-polished bullets.
-  - Bullet rewriting emphasizes impact, metrics, and action verbs.
-- U-Hire / CareerConnect: Aggregates jobs (LinkedIn, Google Jobs, local portals), match percentage, skill gaps, geolocation filters (near me, commute radius, remote).
-  - Track applications and reminders in one place.
-- U-SkillMap (Skill Gap Analyzer): Compares profile to job requirements, recommends prioritized learning paths and time-to-readiness estimates.
-  - Links to resources and project ideas to close gaps.
-- Apply-with-UConnect (1-click Apply): Use generated resume + prefilled cover letter, track application statuses.
-  - Optional customizations per job with AI assistance.
-- Recruiter Dashboard: Filter candidates by U-Score, skills, verified projects; post micro-internships/challenges; track submissions.
-  - Shortlists with evidence-backed candidate cards.
-- Verified Certificates: Mentor/company verifications with optional blockchain anchoring.
-  - Tamper-resistant proofs attach to portfolio items.
+- U‑Resume (AI Resume/CV)
+  - One‑click conversion from profile into polished resumes; multiple templates; export to PDF/DOCX/LinkedIn.
+  - AI bullet rewriting emphasizes impact, metrics, and action verbs.
+- Job/Internship Matching
+  - Aggregated feeds (LinkedIn, Google Jobs, local portals) with match %, skill gaps, geolocation/remote filters.
+- U‑SkillMap (Skill Gap Analyzer)
+  - Clear comparison against job requirements; prioritized learning paths and time‑to‑readiness with resources and mini‑projects.
+- Personalized Roadmaps & Path Advisor
+  - AI recommends target roles (Backend, Data, UX, PM) with rationale; adaptive roadmaps with milestones and mentor suggestions.
+  - Compare paths, pivot recommendations, assessments, and exportable plans.
+- Apply‑with‑UConnect
+  - 1‑click apply using your AI resume + prefilled cover letter; optional per‑job AI tweaks; status tracking.
+- Recruiter Dashboard & Verified Certificates
+  - Evidence‑backed candidate cards, U‑Score filters, micro‑internships/challenges; mentor/company verifications (optional blockchain anchoring).
 
-Career Path Advisor & Personalized Roadmaps:
-- Career Path Recommendation: Suggest roles (Backend, Data, UX, PM) with confidence and rationale.
-- Adaptive Roadmaps: Step-by-step skills, resources, projects, milestones, mentor suggestions; auto-adjust with progress and labor market changes.
-- Compare Paths: Visual overlaps, effort, demand; pivot recommendations (e.g., Frontend → Full-Stack).
-- Resource/Micro-Credential Integrations: Link to MOOCs, playlists, books; add certificates to profile.
-- Mentor Matching per Roadmap, Progress Tracking, Assessments, Salary Estimates (optional), Exportable Plans.
+---
 
 ### AI & Analytics
 
-- Skill Graph & Knowledge Map: Neo4j graph of skills, prerequisites, related jobs; visual explorer.
-- Hybrid Recommendation Engine: Content-based + collaborative filtering with peer success signals.
-- NLP Job Parsing & Matching: BERT/sentence-transformers to parse JDs and compute similarity.
-- AI Career Predictor: Predicts probable career tracks using alumni and trajectory data.
-- Performance & Growth Analytics: Skill growth curves, project success rates, team contribution, benchmarks.
-- AI Interview Coach: Mock interviews (text/voice), recorded feedback and scoring.
+- Skill Graph & Knowledge Map (Neo4j)
+  - Visualize prerequisites, related skills, and job links; track growth over time.
+- Hybrid Recommendation Engine
+  - Content‑based + collaborative filtering + peer success signals for projects, teams, opportunities, and mentors.
+- NLP Job Parsing & Matching
+  - BERT/sentence‑transformers to parse JDs and compute similarity to profiles/portfolios.
+- AI Career Predictor
+  - Forecast probable career trajectories using alumni and outcome data.
+- Performance & Growth Analytics
+  - Skill growth curves, team contribution metrics, project outcomes, benchmarks.
+- AI Interview Coach
+  - Mock interviews (text/voice) with structured feedback and scores.
+- University AI Mentor (Campus Chatbot)
+  - Answers university‑specific questions (semester calendar, notices, documents, faculty details, processes).
+  - Trained on curated, permissioned campus content; supports quick Q&A for freshers and beyond.
+
+---
 
 ### Collaboration & Community
 
-- Smart Task Assistant & Auto-Scheduler: Break down tasks, effort estimates, deadlines, Google Calendar sync.
-- Voice & Video Collaboration: WebRTC/Jitsi, voice queries/commands.
-- Peer Mentorship & Community: Mentor matching, office hours, help forums.
-- Cross-University Mode: Joint competitions, shared project calls, industry challenges.
+- Help Board & Issue Conversion
+  - Share repos, request help (bugs, features, review, docs); auto‑extract metadata; convert into tracked tickets.
+  - GitHub OAuth sync for issues/PRs and status.
+- Open Collaboration & Mentorship
+  - Peer mentorship, office hours, forums; mentor marketplace with tags and booking.
+- Voice & Video + Auto‑Scheduler
+  - WebRTC/Jitsi for calls; Smart Task Assistant suggests breakdowns, effort, deadlines; Calendar sync.
+- Cross‑University Mode
+  - Joint competitions, shared project calls, and industry challenges with transparent governance.
+- Governance, Licensing, and Safety
+  - Owner permissions, license templates (MIT/Apache/CC), consent, moderation tools; academic tie‑ins for assessed labs/capstones.
 
-Community Project Sharing & Open Collaboration:
-- Share Repo Links & Request Help: Public help board (bug-help, feature-request, mentor-review, docs). Auto metadata extraction (language, issues, README summary).
-- Issue & Collaboration Workflow: Convert posts into Help Tickets, assign volunteers, deadlines, threads. GitHub OAuth for issues/PRs and status sync.
-- Visibility of Senior Projects: Public archive (with consent) by dept/year/stack/outcomes; upgrade requests; licensing clarity.
-- Mentor & Reviewer Marketplace: List availability with tags; book review/debug sessions.
-- Contributor Reputation & Incentives: Badges, U-Score boosts; track commits, PRs, issues, mentorship hours.
-- Discovery & Search: Full-text index of READMEs/issues/tags; “Find Flask projects with beginner issues”.
-- Governance & Copyright: Owner permissions, license templates (MIT/Apache/CC), consent, moderation tools.
-- Educational Tie-ins: Convert collaboration tasks to assessed labs/capstones with rubrics.
-- Micro-Internships (Optional): Paid upgrades/sponsored tasks.
+
+---
 
 ### Engagement & Gamification
 
-- Badges & Achievements, Leaderboards & Challenges, Streaks & XP.
+- Badges & Achievements
+- Leaderboards & Challenges
+- Streaks & XP
 
 ---
 
