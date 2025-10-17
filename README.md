@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/badge/platform-Web%20first%20%E2%86%92%20Mobile%20next-purple)](#development-plan-web-first-mobile-next)
 [![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20Node%20%7C%20Python%20%7C%20Postgres%20%7C%20OpenAI-orange)](#tech-stack)
 
-UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover jobs/internships — starting with a web-first build.
+UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover opportunities.
 
 Core value: Turn academic work into verifiable career assets and accelerate the path from learning → experience → employment.
 
@@ -16,8 +16,8 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
 - [Vision & Summary](#vision--summary)
 - [Development Plan (Web First → Mobile Next)](#development-plan-web-first-mobile-next)
 - [SDLC & Process (Agile)](#sdlc--process-agile)
-- [Modules at a Glance](#modules-at-a-glance)
 - [Key Features](#key-features)
+  - [Feature Highlights (at a glance)](#feature-highlights-at-a-glance)
   - [Core Modules](#core-modules)
   - [Career & Employability](#career--employability)
   - [AI & Analytics](#ai--analytics)
