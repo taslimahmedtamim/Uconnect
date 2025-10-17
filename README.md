@@ -432,13 +432,12 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Team & Contact
 
-| Member                | Role                              | Profession             | Gmail (to be added) | GitHub (to be added) |
-|----------------------|-----------------------------------|------------------------|---------------------|----------------------|
-| Taslim Ahmed Tamim   | Full Stack / Backend Developer     | Student & Developer    |                     |                      |
-| Salman Kabir Sany    | Frontend / UI-UX Developer         | Student & Developer    |                     |                      |
-| Majharul Islam       | AI / Career Advisor Developer      | Student & Developer    |                     |                      |
+| Member                | Profession     | Gmail                          | GitHub                                                    |
+|-----------------------|----------------|--------------------------------|-----------------------------------------------------------|
+| Taslim Ahmed Tamim    | Student        | taslimahmedtamim4u@gmail.com   | [taslimahmedtamim](https://github.com/taslimahmedtamim)   |
+| Salman Kabir Sany     | Student        | salmankabirsany@gmail.com      | [salmankabirsany](https://github.com/salmankabirsany)     |
+| Majharul Islam        | Student        | majharul.cs@gmail.com          | [MrMajharul](https://github.com/MrMajharul)               |
 
-Project lead/contact: [@taslimahmedtamim](https://github.com/taslimahmedtamim)
 
 For bug reports/feature requests, please open an issue.
 
@@ -462,4 +461,3 @@ This README integrates the consolidated feature specification. For a complete se
 - Stretch Features (5)
 - Ethics & Fairness (3)
 
-If you want this broken out into a separate docs/FEATURES.md with IDs and acceptance criteria, I can generate it next.
