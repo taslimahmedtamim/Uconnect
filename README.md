@@ -367,17 +367,6 @@ Documentation:
 
 ---
 
-## MVP Roadmap (4–6 Weeks)
-
-- Week 1 — Core Profiles & Projects: Profiles, project creation, manual teams.
-- Week 2 — Team Formation & Chat: Rule-based team suggestion, realtime chat, basic project tracker.
-- Week 3 — Resume Generator & Job Match POC: Resume from profile, simple TF-IDF matcher.
-- Week 4 — Demo, UX Polish, Teacher Interface: Dashboard polish, project calls, initial user testing.
-- Optional: Basic U-Score, geolocation filter, AI-polished summaries.
-
-See [Demo & Pitch Flow](#demo--pitch-flow) for competition-ready script.
-
----
 
 ## Demo & Pitch Flow
 
