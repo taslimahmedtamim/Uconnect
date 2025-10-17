@@ -1,10 +1,11 @@
 # UConnect
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-MVP%20planning-blue)](#mvp-roadmap-46-weeks)
+[![Process](https://img.shields.io/badge/process-Agile-blue)](#sdlc--process-agile)
+[![Platform](https://img.shields.io/badge/platform-Web%20first%20%E2%86%92%20Mobile%20next-purple)](#development-plan-web-first-mobile-next)
 [![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20Node%20%7C%20Python%20%7C%20Postgres%20%7C%20OpenAI-orange)](#tech-stack)
 
-UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover jobs/internships — all powered by data-informed matching and automation.
+UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover jobs/internships — starting with a web-first build.
 
 Core value: Turn academic work into verifiable career assets and accelerate the path from learning → experience → employment.
 
@@ -13,6 +14,8 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
 ## Table of Contents
 
 - [Vision & Summary](#vision--summary)
+- [Development Plan (Web First → Mobile Next)](#development-plan-web-first-mobile-next)
+- [SDLC & Process (Agile)](#sdlc--process-agile)
 - [Modules at a Glance](#modules-at-a-glance)
 - [Key Features](#key-features)
   - [Core Modules](#core-modules)
@@ -23,17 +26,17 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
 - [Architecture Overview](#architecture-overview)
 - [Tech Stack](#tech-stack)
 - [Monorepo Structure](#monorepo-structure)
-- [Getting Started (MVP)](#getting-started-mvp)
+- [Getting Started (Web)](#getting-started-web)
   - [Prerequisites](#prerequisites)
   - [Environment Variables](#environment-variables)
   - [Backend Setup](#backend-setup)
   - [Frontend Setup](#frontend-setup)
   - [AI Services Setup](#ai-services-setup)
   - [Running Tests, Lint, Format](#running-tests-lint-format)
+- [Mobile App Plan](#mobile-app-plan)
 - [Data Model & Concepts](#data-model--concepts)
 - [API & Integrations (Overview)](#api--integrations-overview)
 - [Security, Privacy & Ethics](#security-privacy--ethics)
-- [MVP Roadmap (4–6 Weeks)](#mvp-roadmap-46-weeks)
 - [Demo & Pitch Flow](#demo--pitch-flow)
 - [Success Metrics](#success-metrics)
 - [Contributing](#contributing)
@@ -52,6 +55,41 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
   - Faster, fairer team formation and mentorship.
   - Verified portfolios and certificates as credible hiring signals.
   - Personalized career paths and job matches that reflect true skills.
+
+---
+
+## Development Plan (Web First → Mobile Next)
+
+We will prioritize a web-based release first, then build the mobile app.
+
+- Web first:
+  - Focus on core flows: auth, profiles, project/team formation, portfolio, resume generation, opportunity discovery.
+  - Ship quickly to validate with students/faculty; iterate based on feedback.
+- Mobile next:
+  - Build a dedicated mobile app after the web release stabilizes.
+  - Target tech: React Native to maximize reuse with the React web stack.
+  - Mobile priorities: notifications, quick apply, chat, task updates, mentor sessions.
+
+---
+
+## SDLC & Process (Agile)
+
+- Framework: Agile (Scrum/Kanban hybrid depending on team size and cadence).
+- Cadence:
+  - Iterative delivery in short cycles.
+  - Lightweight planning, continuous refinement, and frequent releases.
+- Ceremonies:
+  - Planning and backlog refinement
+  - Daily standups
+  - Review/demo
+  - Retrospective with actionable improvements
+- Backlog & Prioritization:
+  - Value-first prioritization; capture user feedback from web release to inform subsequent iterations and mobile scope.
+- Definition of Done:
+  - Coded, reviewed, tested, documented (user-facing notes where needed), and deployed.
+- Branching & CI/CD:
+  - Trunk-based or short-lived feature branches.
+  - GitHub Actions for tests/lint/build; preview deployments for frontend; automatic checks before merge.
 
 ---
 
@@ -150,27 +188,42 @@ Community Project Sharing & Open Collaboration:
 
 ## Architecture Overview
 
-- Frontend SPA (React) handles UI, routing, and OAuth flows.
+- Frontend SPA (React) handles UI, routing, and OAuth flows. Web is the primary client initially.
 - Backend API (REST/GraphQL) manages users, projects, teams, scoring, notifications.
 - Realtime (Socket.io/Firebase) for chat, presence, and live updates.
 - AI Services (Python microservices) for recommendations, resume generation, matching, and interview coach.
 - Datastores: Postgres (primary), MongoDB (optional docs), Neo4j (skill graph), Vector DB (FAISS/Pinecone), Elasticsearch (text search), Redis (queues/cache), S3/Cloud Storage.
 - Integrations: OAuth/SSO, GitHub sync, job portals, maps/geolocation.
+- Mobile: React Native app consuming the same APIs; push notifications via FCM/APNs; deep links to resources.
 
 ---
 
 ## Tech Stack
 
-- Frontend: React, Tailwind CSS, shadcn/ui, React Query, React Router, Chart.js/Recharts.
-- Backend: Node.js + Express (or Django alternative).
-- AI/ML: Python, scikit-learn, TensorFlow/PyTorch, sentence-transformers, spaCy, OpenAI API.
-- Databases: PostgreSQL (primary), MongoDB (optional), Neo4j (graph).
-- Search/Matching: Elasticsearch (text search) and/or FAISS/Pinecone (semantic).
-- Realtime: Socket.io or Firebase.
-- Storage: AWS S3 or Firebase Storage.
-- Auth: OAuth2 (Google, GitHub), University SSO, JWT.
-- Hosting: Vercel (frontend), Render/Heroku/AWS/GCP (backend).
-- Jobs & Maps: LinkedIn Jobs, Google Jobs, local portals (APIs/scraping), Google Maps.
+- Frontend (Web):
+  - React, Tailwind CSS, shadcn/ui, React Query, React Router, Chart.js/Recharts
+  - Hosting: Vercel (or Netlify)
+- Backend:
+  - Node.js + Express (or Django alternative)
+  - ORM/migrations: Prisma (Node) or Django ORM (Python)
+- AI/ML:
+  - Python, scikit-learn, TensorFlow/PyTorch, sentence-transformers, spaCy, OpenAI API
+- Databases:
+  - PostgreSQL (primary), MongoDB (optional), Neo4j (graph)
+- Search/Matching:
+  - Elasticsearch (text search) and/or FAISS/Pinecone (semantic)
+- Realtime:
+  - Socket.io or Firebase
+- Storage:
+  - AWS S3 or Firebase Storage
+- Auth:
+  - OAuth2 (Google, GitHub), University SSO, JWT
+- Hosting:
+  - Vercel (frontend), Render/Heroku/AWS/GCP (backend)
+- Jobs & Maps:
+  - LinkedIn Jobs, Google Jobs, local portals (APIs/scraping), Google Maps
+- Mobile (Planned):
+  - React Native, React Query, Expo Router or React Navigation, FCM/APNs, CodePush/OTA
 
 ---
 
@@ -183,9 +236,14 @@ UConnect/
 │   ├── prisma/       # or migration tooling of choice
 │   ├── tests/
 │   └── package.json  # or requirements.txt for Django
-├── frontend/         # React + Tailwind + shadcn/ui
+├── frontend/         # React + Tailwind + shadcn/ui (Web)
 │   ├── src/
 │   ├── public/
+│   ├── tests/
+│   └── package.json
+├── mobile/           # React Native app (planned)
+│   ├── app/
+│   ├── src/
 │   ├── tests/
 │   └── package.json
 ├── ai/               # Python microservices for AI/recs/resume/interview coach
@@ -200,7 +258,7 @@ UConnect/
 
 ---
 
-## Getting Started (MVP)
+## Getting Started (Web)
 
 ### Prerequisites
 
@@ -301,6 +359,20 @@ python run_service.py
 
 ---
 
+## Mobile App Plan
+
+- Tech: React Native (Expo or bare) to reuse business logic and UI patterns from the web where sensible.
+- API: Same REST/GraphQL endpoints; shared types via OpenAPI/Swagger or codegen to reduce drift.
+- Auth: OAuth with deep links (App/Universal Links), secure token storage.
+- Features (initial):
+  - Push notifications for deadlines, chat mentions, mentor feedback.
+  - Quick actions: apply to jobs, update task status, check-in for sessions.
+  - Lightweight profile edits and resume export links.
+- Offline-first (select screens): local cache with background sync for tasks/messages.
+- Release: Closed beta after the web release stabilizes; iterate via OTA updates (Expo/CodePush).
+
+---
+
 ## Data Model & Concepts
 
 Core entities:
@@ -367,7 +439,6 @@ Documentation:
 
 ---
 
-
 ## Demo & Pitch Flow
 
 1. Opening Problem (20s): Student struggles to find teammates/internships.
@@ -427,14 +498,13 @@ MIT License — see [LICENSE](LICENSE).
 | Salman Kabir Sany     | Student        | salmankabirsany@gmail.com      | [salmankabirsany](https://github.com/salmankabirsany)     |
 | Majharul Islam        | Student        | majharul.cs@gmail.com          | [MrMajharul](https://github.com/MrMajharul)               |
 
-
 For bug reports/feature requests, please open an issue.
 
 ---
 
 ## Appendix: Full Feature Index
 
-This README integrates the consolidated feature specification. For a complete serial listing across Core, Career, Analytics, Collaboration, Gamification, Security, UX, Integration, MVP Plan, and Demo Strategy:
+This README integrates the consolidated feature specification. For a complete serial listing across Core, Career, Analytics, Collaboration, Gamification, Security, UX, Integration, Plan, and Demo …
 
 - Core Modules (11)
 - Career & Employability (6) + Career Path Advisor (10)
@@ -444,9 +514,7 @@ This README integrates the consolidated feature specification. For a complete se
 - Security, Privacy & Trust (4)
 - UX/Frontend (3)
 - Integration & Tech Stack (11)
-- MVP Roadmap (4 weeks + optional)
 - Demo & Pitch Strategy (5 steps)
 - Success Metrics (5)
 - Stretch Features (5)
 - Ethics & Fairness (3)
-
