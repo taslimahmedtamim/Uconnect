@@ -93,16 +93,6 @@ We will prioritize a web-based release first, then build the mobile app.
 
 ---
 
-## Modules at a Glance
-
-- Profiles & Portfolio: Rich, verifiable profiles with skills, projects, endorsements, and shareable mini-sites.
-- Team Formation & Project Hub: Create calls for projects, form balanced teams, track progress and milestones.
-- Career & Resume: AI-generated resumes and job matching with skill-gap insights and roadmaps.
-- AI Services: Matching engine, NLP job parsing, interview coach, and analytics.
-- Community & Collaboration: Realtime chat, help boards, issue conversion, and mentor marketplace.
-- Reputation & Scoring: U-Score based on outcomes, contributions, reviews, and timeliness.
-
----
 
 ## Key Features
 
