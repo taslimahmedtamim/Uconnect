@@ -150,53 +150,47 @@ Community Project Sharing & Open Collaboration:
 
 ## Architecture Overview
 
-The diagram below fixes prior Mermaid rendering issues and groups components into clear modules.
-
 ```mermaid
 flowchart LR
-  %% Direction
-  %% Grouped subgraphs to highlight modules
-  subgraph FE[Frontend]
-    A[Web App\n(React + Tailwind + shadcn/ui)]
+  %% Modules
+  subgraph Frontend
+    A[Web App: React + Tailwind + shadcn/ui]
   end
 
-  subgraph BE[Backend]
-    B[API Server\n(Node.js/Express or Django)]
-    L[Realtime\n(Socket.io/Firebase)]
+  subgraph Backend
+    B[API: Node.js/Express or Django]
   end
 
-  subgraph DS[Data Stores]
-    C[(PostgreSQL)]
-    D[(MongoDB - Docs Optional)]
-    E[(Neo4j - Skill Graph)]
-    F[(Vector DB - FAISS/Pinecone)]
-    G[(Elasticsearch - Search)]
-    H[(Redis - Queue/Cache)]
-    M[(S3/Firebase Storage)]
+  subgraph AI_Services[AI Services]
+    I[Python services: Recommender, Resume, Matching]
   end
 
-  subgraph AI[AI Services]
-    I[Python Services\n(Transformers, OpenAI)]
+  subgraph Data_Stores[Data Stores]
+    C[PostgreSQL]
+    D[MongoDB (optional)]
+    E[Neo4j (optional)]
+    F[FAISS/Pinecone]
+    M[S3/Firebase Storage]
   end
 
-  subgraph INT[Integrations]
-    J[(Auth: OAuth2/SSO/JWT)]
-    K[GitHub, LinkedIn, Job APIs, Maps]
+  subgraph Realtime
+    L[Socket.io/Firebase (optional)]
   end
 
-  %% Edges
+  J[Auth: OAuth2 / SSO / JWT]
+  K[Integrations: GitHub, LinkedIn, Job APIs, Maps]
+
+  %% Edges (kept simple for maximum GitHub Mermaid compatibility)
   A <--> B
-  B <--> L
-  B <--> C
-  B <--> D
-  B <--> E
-  B <--> F
-  B <--> G
-  B <--> H
-  B <--> M
-  B <--> I
+  B --> C
+  B --> D
+  B --> E
+  B --> F
+  B --> M
+  B --> L
   B <--> J
-  B <--> K
+  B --> K
+  B <--> I
 ```
 
 - Frontend SPA (React) handles UI, routing, and OAuth flows.
