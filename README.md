@@ -1,10 +1,10 @@
 # UConnect
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-MVP%20planning-blue)](#roadmap)
+[![Status](https://img.shields.io/badge/status-MVP%20planning-blue)](#mvp-roadmap-46-weeks)
 [![Tech Stack](https://img.shields.io/badge/stack-React%20%7C%20Node%20%7C%20Python%20%7C%20Postgres%20%7C%20OpenAI-orange)](#tech-stack)
 
-UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover jobs/internships matched to real skills.
+UConnect is an AI-driven university ecosystem that connects students, teachers, and recruiters to collaborate on projects, form balanced teams, build verified portfolios, generate polished resumes, and discover jobs/internships — all powered by data-informed matching and automation.
 
 Core value: Turn academic work into verifiable career assets and accelerate the path from learning → experience → employment.
 
@@ -13,6 +13,7 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
 ## Table of Contents
 
 - [Vision & Summary](#vision--summary)
+- [Modules at a Glance](#modules-at-a-glance)
 - [Key Features](#key-features)
   - [Core Modules](#core-modules)
   - [Career & Employability](#career--employability)
@@ -54,30 +55,58 @@ Core value: Turn academic work into verifiable career assets and accelerate the 
 
 ---
 
+## Modules at a Glance
+
+- Profiles & Portfolio: Rich, verifiable profiles with skills, projects, endorsements, and shareable mini-sites.
+- Team Formation & Project Hub: Create calls for projects, form balanced teams, track progress and milestones.
+- Career & Resume: AI-generated resumes and job matching with skill-gap insights and roadmaps.
+- AI Services: Matching engine, NLP job parsing, interview coach, and analytics.
+- Community & Collaboration: Realtime chat, help boards, issue conversion, and mentor marketplace.
+- Reputation & Scoring: U-Score based on outcomes, contributions, reviews, and timeliness.
+
+---
+
 ## Key Features
 
 ### Core Modules
 
 - Smart Collaboration Engine (AI “Brain”): Learns from skills, projects, GPA, interests, outcomes, and feedback to improve matches over time.
+  - Continuously updates weights to reflect recency, reliability, and mentor endorsements.
 - Intelligent Team Formation: Auto-creates balanced teams (skills, experience, availability) with teacher constraints (handpick, prefer seniors, cross-dept).
+  - Supports hard constraints (must-have) and soft preferences (nice-to-have).
 - Adaptive Skill Profiling: Profiles update from workshops, projects, certifications, mentor feedback. Skill weights adjust by recency, frequency, endorsement.
+  - Generates a transparent skill graph per user with evidence links.
 - Comprehensive Profiles (students/faculty): Projects, U-Score, skill graph, badges, verified internships, shareable mini-site (uconnect.me/username).
+  - Public/private toggles for fields to control recruiter visibility.
 - Opportunity Discovery Hub: Projects, hackathons, internships, and events ranked by match score and proximity.
+  - Filter by stack, timeline, location, team size, and difficulty.
 - Teacher–Student Collaboration: Project calls, team approvals, mentor assignment, evaluation forms, private faculty dashboards.
+  - Rubrics with comment threads and exportable grading reports.
 - UConnect Communication Space: Realtime chat, discussion rooms, file sharing, activity timeline.
+  - Topic channels per project and DM support with attachments.
 - Smart Project Lifecycle Tracker: Tasks, deadlines, auto-milestones, progress analytics, AI task-splitting suggestions.
+  - Burnup/burndown charts; deadline nudges via notifications.
 - U-Score (Reputation & Skill Scoring): Combines outcomes, peer reviews, mentor feedback, contribution tracking.
+  - Guardrails ensure explainability and allow faculty overrides.
 - Cross-Department Bridge: Easily form interdisciplinary teams (e.g., CSE + Design + BBA).
+  - Weighted diversity score to encourage balanced teams.
 - AI-Curated Project Repository: Archive of completed projects with metadata, outcomes, repo links, templates.
+  - Search by stack, tags, complexity, and success metrics.
 
 ### Career & Employability
 
 - U-Resume (AI-Generated Resume/CV): Converts profile into professional resumes. Multiple templates (Corporate/Modern/Academic), export (PDF/DOCX/LinkedIn), AI-polished bullets.
+  - Bullet rewriting emphasizes impact, metrics, and action verbs.
 - U-Hire / CareerConnect: Aggregates jobs (LinkedIn, Google Jobs, local portals), match percentage, skill gaps, geolocation filters (near me, commute radius, remote).
+  - Track applications and reminders in one place.
 - U-SkillMap (Skill Gap Analyzer): Compares profile to job requirements, recommends prioritized learning paths and time-to-readiness estimates.
+  - Links to resources and project ideas to close gaps.
 - Apply-with-UConnect (1-click Apply): Use generated resume + prefilled cover letter, track application statuses.
+  - Optional customizations per job with AI assistance.
 - Recruiter Dashboard: Filter candidates by U-Score, skills, verified projects; post micro-internships/challenges; track submissions.
+  - Shortlists with evidence-backed candidate cards.
 - Verified Certificates: Mentor/company verifications with optional blockchain anchoring.
+  - Tamper-resistant proofs attach to portfolio items.
 
 Career Path Advisor & Personalized Roadmaps:
 - Career Path Recommendation: Suggest roles (Backend, Data, UX, PM) with confidence and rationale.
@@ -121,29 +150,61 @@ Community Project Sharing & Open Collaboration:
 
 ## Architecture Overview
 
+The diagram below fixes prior Mermaid rendering issues and groups components into clear modules.
+
 ```mermaid
 flowchart LR
-  A[Web App (React + Tailwind + shadcn/ui)] <-->|HTTPS| B(Backend API<br/>Node.js/Express or Django)
-  B <-->|SQL| C[(PostgreSQL)]
-  B <-->|Docs| D[(MongoDB):::opt]
-  B <-->|Graph| E[(Neo4j):::opt]
-  B <-->|Embeddings| F[(FAISS/Pinecone)]
-  B <-->|Jobs| G[Elasticsearch:::opt]
-  B <-->|Queue| H[(Redis/Cloud Tasks):::opt]
-  B <-->|AI RPC| I{{AI Services<br/>Python + Transformers + OpenAI}}
-  B <-->|OAuth| J[(Auth: OAuth2/SSO/JWT)]
-  B <-->|Integrations| K[GitHub, LinkedIn, Job APIs, Maps]
-  B <-->|Realtime| L[(Socket.io/Firebase):::opt]
-  B <-->|Storage| M[(S3/Firebase Storage)]
-classDef opt fill:#f7f7f7,stroke:#bbb,color:#333,stroke-dasharray: 3 3;
+  %% Direction
+  %% Grouped subgraphs to highlight modules
+  subgraph FE[Frontend]
+    A[Web App\n(React + Tailwind + shadcn/ui)]
+  end
+
+  subgraph BE[Backend]
+    B[API Server\n(Node.js/Express or Django)]
+    L[Realtime\n(Socket.io/Firebase)]
+  end
+
+  subgraph DS[Data Stores]
+    C[(PostgreSQL)]
+    D[(MongoDB - Docs Optional)]
+    E[(Neo4j - Skill Graph)]
+    F[(Vector DB - FAISS/Pinecone)]
+    G[(Elasticsearch - Search)]
+    H[(Redis - Queue/Cache)]
+    M[(S3/Firebase Storage)]
+  end
+
+  subgraph AI[AI Services]
+    I[Python Services\n(Transformers, OpenAI)]
+  end
+
+  subgraph INT[Integrations]
+    J[(Auth: OAuth2/SSO/JWT)]
+    K[GitHub, LinkedIn, Job APIs, Maps]
+  end
+
+  %% Edges
+  A <--> B
+  B <--> L
+  B <--> C
+  B <--> D
+  B <--> E
+  B <--> F
+  B <--> G
+  B <--> H
+  B <--> M
+  B <--> I
+  B <--> J
+  B <--> K
 ```
 
-- Frontend SPA (React) for UI, routing, auth.
-- Backend API (REST/GraphQL) for users, projects, teams, scoring, notifications.
-- AI Services (Python microservices) for recommendations, resume generation, matching, interview coach.
-- Datastores: Postgres (primary), MongoDB (optional docs), Neo4j (skill graph), Vector DB (FAISS/Pinecone).
-- Background Workers for embeddings, resume builds, notifications.
-- Integrations: OAuth, GitHub sync, job portals, maps.
+- Frontend SPA (React) handles UI, routing, and OAuth flows.
+- Backend API (REST/GraphQL) manages users, projects, teams, scoring, notifications.
+- Realtime (Socket.io/Firebase) for chat, presence, and live updates.
+- AI Services (Python microservices) for recommendations, resume generation, matching, and interview coach.
+- Datastores: Postgres (primary), MongoDB (optional docs), Neo4j (skill graph), Vector DB (FAISS/Pinecone), Elasticsearch (text search), Redis (queues/cache), S3/Cloud Storage.
+- Integrations: OAuth/SSO, GitHub sync, job portals, maps/geolocation.
 
 ---
 
@@ -420,9 +481,11 @@ MIT License — see [LICENSE](LICENSE).
 
 ## Team & Contact
 
-- Member 1 — Full Stack / Backend Developer
-- Member 2 — Frontend / UI-UX Developer
-- Member 3 — AI / Career Advisor Developer
+| Member                | Role                              | Profession             | Gmail (to be added) | GitHub (to be added) |
+|----------------------|-----------------------------------|------------------------|---------------------|----------------------|
+| Taslim Ahmed Tamim   | Full Stack / Backend Developer     | Student & Developer    |                     |                      |
+| Salman Kabir Sany    | Frontend / UI-UX Developer         | Student & Developer    |                     |                      |
+| Majharul Islam       | AI / Career Advisor Developer      | Student & Developer    |                     |                      |
 
 Project lead/contact: [@taslimahmedtamim](https://github.com/taslimahmedtamim)
 
@@ -432,7 +495,7 @@ For bug reports/feature requests, please open an issue.
 
 ## Appendix: Full Feature Index
 
-This README integrates the consolidated feature specification. For a complete serial listing across Core, Career, Analytics, Collaboration, Gamification, Security, UX, Integration, MVP Plan, Demo Strategy, Metrics, Stretch Features, and Ethics, see the sections above. Highlights include:
+This README integrates the consolidated feature specification. For a complete serial listing across Core, Career, Analytics, Collaboration, Gamification, Security, UX, Integration, MVP Plan, and Demo Strategy:
 
 - Core Modules (11)
 - Career & Employability (6) + Career Path Advisor (10)
